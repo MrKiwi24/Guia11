@@ -5,15 +5,15 @@ import entities.data.MaritalStatus;
 
 import java.time.LocalDate;
 
-public class StaffMember extends BasicInfo {
+public class StaffMemberInfo extends BasicInfo {
 
     private LocalDate staffHireDate;
     private int staffOfficeNumber;
 
-    public StaffMember(){
+    public StaffMemberInfo(){
     }
 
-    public StaffMember(long personID, String personFirstName, String personMiddleName, String personLastName, MaritalStatus maritalStatus, LocalDate staffHireDate, int staffOfficeNumber) {
+    public StaffMemberInfo(long personID, String personFirstName, String personMiddleName, String personLastName, MaritalStatus maritalStatus, LocalDate staffHireDate, int staffOfficeNumber) {
         super(personID, personFirstName, personMiddleName, personLastName, maritalStatus);
         this.staffHireDate = staffHireDate;
         this.staffOfficeNumber = staffOfficeNumber;

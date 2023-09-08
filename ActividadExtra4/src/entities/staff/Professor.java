@@ -2,10 +2,10 @@ package entities.staff;
 
 import entities.data.ClassCourse;
 import entities.data.MaritalStatus;
-import entities.staff.StaffMember;
+
 import java.time.LocalDate;
 
-public class Professor extends StaffMember {
+public class Professor extends StaffMemberInfo {
     private ClassCourse classTaught;
 
     public Professor() {
