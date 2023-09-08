@@ -1,8 +1,6 @@
 package entities.data;
 
-public class MaritalStatus {
-    private maritalStatus maritalStatus;
-    private enum maritalStatus {
+    public enum MaritalStatus {
         SINGLE,
         MARRIED,
         DIVORCED,
@@ -10,19 +8,3 @@ public class MaritalStatus {
         WIDOWED,
         REGISTERED_PARTNERSHIP;
     }
-
-    public MaritalStatus() {
-    }
-
-    public MaritalStatus(MaritalStatus.maritalStatus maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public MaritalStatus.maritalStatus getMaritalStatus() {
-        return maritalStatus;
-    }
-
-    public void setMaritalStatus(MaritalStatus.maritalStatus maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-}
