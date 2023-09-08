@@ -1,0 +1,17 @@
+import entities.staff.personnel.Personnel;
+import entities.staff.professor.Professor;
+import entities.student.Student;
+import services.CollegeService;
+
+import java.util.ArrayList;
+
+public class Main {
+    public static ArrayList<Student> students = new ArrayList<>();
+    public static ArrayList<Professor> professors = new ArrayList<>();
+    public static ArrayList<Personnel> personnels = new ArrayList<>();
+    public static CollegeService collegeService = new CollegeService();
+
+    public static void main(String[] args) {
+        collegeService.loadPeople(students, professors, personnels);
+    }
+}
