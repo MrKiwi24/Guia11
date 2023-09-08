@@ -1,11 +1,11 @@
 package entities.staff;
 
-import entities.Person;
+import entities.BasicInfo;
 import entities.data.MaritalStatus;
 
 import java.time.LocalDate;
 
-public class StaffMember extends Person {
+public class StaffMember extends BasicInfo {
 
     private LocalDate staffHireDate;
     private int staffOfficeNumber;

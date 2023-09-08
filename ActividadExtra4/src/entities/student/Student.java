@@ -1,12 +1,12 @@
 package entities.student;
 
-import entities.Person;
+import entities.BasicInfo;
 import entities.data.ClassCourse;
 import entities.data.MaritalStatus;
 
 import java.util.ArrayList;
 
-public class Student extends Person {
+public class Student extends BasicInfo {
     private ArrayList<ClassCourse> enlistedCourses;
 
     public Student(){

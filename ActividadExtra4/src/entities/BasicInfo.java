@@ -2,17 +2,17 @@ package entities;
 
 import entities.data.MaritalStatus;
 
-public class Person {
+public class BasicInfo {
     protected long personID;
     protected String personFirstName;
     protected String personMiddleName;
     protected String personLastName;
     protected MaritalStatus maritalStatus;
 
-    public Person() {
+    public BasicInfo() {
     }
 
-    public Person(long personID, String personFirstName, String personMiddleName, String personLastName, MaritalStatus maritalStatus) {
+    public BasicInfo(long personID, String personFirstName, String personMiddleName, String personLastName, MaritalStatus maritalStatus) {
         this.personID = personID;
         this.personFirstName = personFirstName;
         this.personMiddleName = personMiddleName;
