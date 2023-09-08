@@ -1,6 +1,6 @@
-package services.staff.personnel;
+package services.staff;
 
-import entities.staff.personnel.Personnel;
+import entities.staff.Personnel;
 
 import java.util.ArrayList;
 

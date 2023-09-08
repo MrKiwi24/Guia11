@@ -1,6 +1,6 @@
-package services.staff.professor;
+package services.staff;
 
-import entities.staff.professor.Professor;
+import entities.staff.Professor;
 
 import java.util.ArrayList;
 

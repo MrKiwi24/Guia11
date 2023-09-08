@@ -1,4 +1,4 @@
-package entities.staff.personnel;
+package entities.staff;
 
 import entities.data.MaritalStatus;
 import entities.data.PersonnelDepartment;

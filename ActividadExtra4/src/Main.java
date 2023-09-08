@@ -1,5 +1,5 @@
-import entities.staff.personnel.Personnel;
-import entities.staff.professor.Professor;
+import entities.staff.Personnel;
+import entities.staff.Professor;
 import entities.student.Student;
 import services.CollegeService;
 

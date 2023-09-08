@@ -1,4 +1,4 @@
-package entities.staff.professor;
+package entities.staff;
 
 import entities.data.ClassCourse;
 import entities.data.MaritalStatus;

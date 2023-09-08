@@ -1,10 +1,10 @@
 package services;
 
-import entities.staff.personnel.Personnel;
-import entities.staff.professor.Professor;
+import entities.staff.Personnel;
+import entities.staff.Professor;
 import entities.student.Student;
-import services.staff.personnel.PersonnelService;
-import services.staff.professor.ProfessorService;
+import services.staff.PersonnelService;
+import services.staff.ProfessorService;
 import services.student.StudentService;
 
 import java.util.ArrayList;
