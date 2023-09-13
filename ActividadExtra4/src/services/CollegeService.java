@@ -10,7 +10,7 @@ import services.student.StudentService;
 import java.util.ArrayList;
 
 public class CollegeService {
-    BasicInfoServices basicInfoServices = new BasicInfoServices();
+    BasicInfoService basicInfoServices = new BasicInfoService();
     StudentService studentService = new StudentService(basicInfoServices);
     ProfessorService professorService = new ProfessorService();
     PersonnelService personnelService = new PersonnelService();
@@ -22,6 +22,7 @@ public class CollegeService {
         professorService.loadProfessors(professors);
         personnelService.loadPersonnels(personnels);
     }
-
+    public void updateInfo(ArrayList<Student> students){
+    }
 
 }

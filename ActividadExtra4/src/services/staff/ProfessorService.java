@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ProfessorService {
-    public void loadProfessors(ArrayList<Professor> professors){
+    public void loadProfessors(ArrayList<Professor> professors) {
 
         Professor professor0 = new Professor(26569637,
                 "Pedro",
@@ -72,7 +72,7 @@ public class ProfessorService {
                 204,
                 ClassCourse.ENGLISH);
 
-        Professor professor7 = new Professor(29610700 ,
+        Professor professor7 = new Professor(29610700,
                 "Nadia",
                 "Martina",
                 "Portillo",
@@ -119,5 +119,5 @@ public class ProfessorService {
         professors.add(professor8);
         professors.add(professor9);
         professors.add(professor10);
-}
+    }
 }

@@ -12,6 +12,7 @@ public class BasicInfo {
     public BasicInfo() {
     }
 
+
     public BasicInfo(long personID, String personFirstName, String personMiddleName, String personLastName, MaritalStatus maritalStatus) {
         this.personID = personID;
         this.personFirstName = personFirstName;
@@ -58,5 +59,17 @@ public class BasicInfo {
 
     public void setMaritalStatus(MaritalStatus maritalStatus) {
         this.maritalStatus = maritalStatus;
+    }
+
+    public static BasicInfo copy(BasicInfo other){
+        BasicInfo tempInfo = new BasicInfo();
+
+        tempInfo.setPersonID(other.getPersonID());
+        tempInfo.setPersonFirstName(other.getPersonFirstName());
+        tempInfo.setPersonMiddleName(other.getPersonMiddleName());
+        tempInfo.setPersonLastName(other.getPersonLastName());
+        tempInfo.setMaritalStatus(other.getMaritalStatus());
+
+        return tempInfo;
     }
 }
