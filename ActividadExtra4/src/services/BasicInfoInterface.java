@@ -3,9 +3,8 @@ package services;
 import entities.BasicInfo;
 
 public interface BasicInfoInterface {
-    public BasicInfo register();
-    public void fetchBasicInfo(BasicInfo info);
-    public BasicInfo update(BasicInfo oldInfo);
-    public BasicInfo delete(BasicInfo info);
-    public void showPeople(BasicInfo info);
+    BasicInfo register();
+    void fetchBasicInfo(BasicInfo info);
+    BasicInfo update(BasicInfo oldInfo);
+    void showPeople(BasicInfo info);
 }

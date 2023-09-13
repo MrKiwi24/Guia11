@@ -17,7 +17,7 @@ public class StudentService implements StudentInterface{
     }
     Scanner read = new Scanner(System.in);
     public void loadStudents(ArrayList<Student> students){
-        //Me odio, así que cargué 12 personas para poder modificarlas. Esto solo se hace 1 vez mientras se compila el programa.
+        //There are 12 people here.
         ArrayList<ClassCourse> coursesBusiness =  new ArrayList<>();
         coursesBusiness.add(ClassCourse.ENGLISH);
         coursesBusiness.add(ClassCourse.BUSINESS);
@@ -143,14 +143,12 @@ public class StudentService implements StudentInterface{
     }
     @Override
     public void registerNewStudent() {
-        Scanner read = new Scanner(System.in);
         Student student = new Student();
 
         student.setBasicInfo(basicInfoServices.register());
 
         ArrayList<ClassCourse> courses = new ArrayList<>();
-        courses.addAll(addCourses(courses));
-        student.setEnlistedCourses(courses);
+        student.setEnlistedCourses(addCourses(courses));
 
         students.add(student);
     }
