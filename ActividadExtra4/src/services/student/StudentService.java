@@ -338,7 +338,7 @@ public class StudentService implements StudentInterface{
             if (selection >= 1 && selection <= students.size()){
                 selection--;
                 return selection;
-            } else if (selection <= 0 || selection > students.size()){
+            }else{
                 System.out.println("Wrong option. Please, try again");
             }
 
