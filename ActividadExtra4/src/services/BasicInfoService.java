@@ -59,6 +59,7 @@ public class BasicInfoService implements BasicInfoInterface {
         String confirmation = read.nextLine();
         while (true){
             if(confirmation.equalsIgnoreCase("y")){
+                System.out.println("Changes have been applied...");
                 return updatedBasicInfo;
             }
             else if (confirmation.equalsIgnoreCase("n")){

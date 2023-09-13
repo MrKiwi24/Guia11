@@ -16,7 +16,7 @@ public class StudentService implements StudentInterface{
         this.students = students;
     }
     Scanner read = new Scanner(System.in);
-    public void loadStudents(ArrayList<Student> students){
+    public void loadStudents(){
         //There are 12 people here.
         ArrayList<ClassCourse> coursesBusiness =  new ArrayList<>();
         coursesBusiness.add(ClassCourse.ENGLISH);
@@ -154,9 +154,9 @@ public class StudentService implements StudentInterface{
     }
     @Override
     public void updateStudentInfo() {
-        Student oldStudent = students.get(studentSelection());
-        Student updatedStudent = Student.copy(oldStudent);
-        fetchStudentInfo(updatedStudent);
+        int selection = studentSelection();
+        Student student = students.get(selection);
+        fetchStudentInfo(student);
 
         System.out.println("1 => EDIT basic info");
         System.out.println("2 => ADD courses");
@@ -164,19 +164,20 @@ public class StudentService implements StudentInterface{
         System.out.println("0 => CANCEL.");
         int updateOption = Integer.parseInt(read.nextLine());
 
-        //TODO: confirmación de los cambios. Agregar y sacar cursos.
         while (true) {
             switch (updateOption) {
                 case 1 -> {
-                    updatedStudent.setBasicInfo(basicInfoServices.update(updatedStudent));
+                    student.setBasicInfo(basicInfoServices.update(student));
+                    students.set(selection, student);
                     return;
                 }
                 case 2 -> {
-                    updatedStudent.setEnlistedCourses(addCourses(updatedStudent.getEnlistedCourses()));
+                    student.setEnlistedCourses(addCourses(student.getEnlistedCourses()));
+                    students.set(selection, student);
                     return;
                 }
                 case 3 -> {/*DELETE COURSES*/
-                    System.out.println("Imaginate que borro clases.");
+                    System.out.println("Imaginate que borro las clases en las que se anotan...");
                 return;}
                 case 0 -> {
                     return;
@@ -329,10 +330,18 @@ public class StudentService implements StudentInterface{
         System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=");
     }
     private int studentSelection(){
-        System.out.println("Select the student...");
         fetchStudentList();
+        System.out.println("Select the student...");
+
         int selection = Integer.parseInt(read.nextLine());
-        selection--;
+
+        if (selection >= 1 && selection <= students.size()){
+            selection--;
+        } else if (selection <= 0 || selection > students.size()){
+            selection = 0;
+            System.out.println("Wrong option. Please, try again");
+            studentSelection();
+        }
         return selection;
     }
 }

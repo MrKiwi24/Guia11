@@ -1,12 +1,21 @@
 package services.staff;
 import entities.data.ClassCourse;
 import entities.data.MaritalStatus;
+import entities.staff.Personnel;
 import entities.staff.Professor;
+import services.BasicInfoService;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ProfessorService {
-    public void loadProfessors(ArrayList<Professor> professors) {
+    private final BasicInfoService basicInfoServices;
+    private final ArrayList<Professor> professors;
+    public ProfessorService(BasicInfoService basicInfoServices, ArrayList<Professor> professors) {
+        this.basicInfoServices = basicInfoServices;
+        this.professors = professors;
+    }
+    public void loadProfessors() {
 
         Professor professor0 = new Professor(26569637,
                 "Pedro",

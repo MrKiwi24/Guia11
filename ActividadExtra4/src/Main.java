@@ -12,6 +12,6 @@ public class Main {
         //Load the lists with hardcoded data for testing and app usage.
         collegeService.loadPeople();
 
-        collegeService.studentMenu();
+        collegeService.mainMenu();
     }
 }
