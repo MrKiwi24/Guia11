@@ -18,6 +18,10 @@ public class Student extends BasicInfo {
         super.personMiddleName = basicInfo.getPersonMiddleName();
         super.personLastName = basicInfo.getPersonLastName();
     }
+    public BasicInfo getBasicInfo(Student student){
+        BasicInfo basicInfo = student;
+        return basicInfo;
+    }
     public Student(long personID, String personFirstName, String personMiddleName, String personLastName, MaritalStatus maritalStatus, ArrayList<ClassCourse> enlistedCourses) {
         super(personID, personFirstName, personMiddleName, personLastName, maritalStatus);
         this.enlistedCourses = enlistedCourses;

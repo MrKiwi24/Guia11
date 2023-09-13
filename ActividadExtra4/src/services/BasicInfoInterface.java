@@ -7,4 +7,5 @@ public interface BasicInfoInterface {
     public void fetchBasicInfo(BasicInfo info);
     public BasicInfo update(BasicInfo oldInfo);
     public BasicInfo delete(BasicInfo info);
+    public void showPeople(BasicInfo info);
 }

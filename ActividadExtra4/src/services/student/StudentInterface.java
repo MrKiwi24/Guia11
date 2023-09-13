@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface StudentInterface{
     public void registerNewStudent(ArrayList<Student> students);
-    public void fetchStudentInfo(Student student);
-    public void updateStudentInfo(Student oldStudent);
-    public Student deleteStudent (Student studentToDelete);
+    public void updateStudentInfo(ArrayList<Student> students);
+    public void deleteStudent (ArrayList<Student> students);
+    public void fetchStudentList(ArrayList<Student> students);
 }

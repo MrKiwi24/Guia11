@@ -73,6 +73,12 @@ public class BasicInfoService implements BasicInfoInterface {
     public BasicInfo delete(BasicInfo info) {
         return null;
     }
+
+    @Override
+    public void showPeople(BasicInfo info) {
+        System.out.println("ID: " + info.getPersonID() + "\t|"+ info.getPersonLastName()+", "+ info.getPersonFirstName()+" "+info.getPersonMiddleName() + ".");
+        System.out.println("-----------------------------------------------------------------");
+    }
     private String updateFirstName(){
         System.out.println("Enter new FIRST name...");
         return read.nextLine();

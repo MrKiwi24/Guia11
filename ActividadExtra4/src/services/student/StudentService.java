@@ -1,6 +1,5 @@
 package services.student;
 
-import entities.BasicInfo;
 import entities.data.ClassCourse;
 import entities.data.MaritalStatus;
 import entities.student.Student;
@@ -148,9 +147,74 @@ public class StudentService implements StudentInterface{
         student.setBasicInfo(basicInfoServices.register());
 
         ArrayList<ClassCourse> courses = new ArrayList<>();
-        loop: while (true){
-            System.out.println("Press 0 to stop adding courses");
+        courses.addAll(addCourses(courses));
+        student.setEnlistedCourses(courses);
 
+        students.add(student);
+    }
+    @Override
+    public void updateStudentInfo(ArrayList<Student> students) {
+        Student oldStudent = students.get(studentSelection(students));
+        Student updatedStudent = Student.copy(oldStudent);
+        fetchStudentInfo(updatedStudent);
+
+        System.out.println("1 => EDIT basic info");
+        System.out.println("2 => ADD courses");
+        System.out.println("3 => DELETE courses");
+        System.out.println("0 => CANCEL.");
+        int updateOption = Integer.parseInt(read.nextLine());
+
+        //TODO: confirmación de los cambios. Agregar y sacar cursos.
+        while (true) {
+            switch (updateOption) {
+                case 1 -> {
+                    updatedStudent.setBasicInfo(basicInfoServices.update(updatedStudent));
+                    return;
+                }
+                case 2 -> {
+                    updatedStudent.setEnlistedCourses(addCourses(updatedStudent.getEnlistedCourses()));
+                    return;
+                }
+                case 3 -> {/*DELETE COURSES*/
+                    System.out.println("Imaginate que borro clases.");
+                return;}
+                case 0 -> {
+                    return;
+                }
+                default -> System.out.println("Wrong option, try again.");
+            }
+        }
+    }
+    @Override
+    public void deleteStudent(ArrayList<Student> students) {
+        int studentDeleteSelection = studentSelection(students);
+        while (true){
+        System.out.println("ARE YOU SURE YOU WANT TO DELETE THIS STUDENT?");
+        System.out.println("Y - YES //// N - NO");
+        String confirmation = read.nextLine();
+            if(confirmation.equalsIgnoreCase("y")){
+                students.remove(studentDeleteSelection);
+                System.out.println("The student's been successfully removed.");
+                return;
+            } else if(confirmation.equalsIgnoreCase("n")){
+                System.out.println("The deletion process has been canceled.");
+                return;
+            } else {
+                System.out.println("Incorrect option. Please, try again.");
+            }
+
+        }
+    }
+    @Override
+    public void fetchStudentList(ArrayList<Student> students){
+        System.out.println("*=*=*=*=*=*=*=*=*=*=*=*=*|-| STUDENTS |-|=*=*=*=*=*=*=*=*=*=*=*=*");
+        for(int i = 0; i<students.size(); i++) {
+            System.out.print(i+1+ "\t=> ");
+            basicInfoServices.showPeople(students.get(i));
+        }
+    }
+    private ArrayList<ClassCourse> addCourses(ArrayList<ClassCourse> courses) {
+        while (true) {
             System.out.println("1 => MATHS");
             System.out.println("2 => CHEMISTRY");
             System.out.println("3 => PHYSICS");
@@ -162,63 +226,112 @@ public class StudentService implements StudentInterface{
             System.out.println("9 => STATISTICS");
             System.out.println("10 => BUSINESS");
             System.out.println("11 => ENGLISH");
+            System.out.println("--------------------");
+            System.out.println("0 => STOP ADDING COURSES");
             int course = Integer.parseInt(read.nextLine());
 
-            switch(course) {
-                case 1 -> courses.add(ClassCourse.MATHS);
-                case 2 -> courses.add(ClassCourse.CHEMISTRY);
-                case 3 -> courses.add(ClassCourse.PHYSICS);
-                case 4 -> courses.add(ClassCourse.GEOGRAPHY);
-                case 5 -> courses.add(ClassCourse.HISTORY);
-                case 6 -> courses.add(ClassCourse.BIOLOGY);
-                case 7 -> courses.add(ClassCourse.COMPUTER_SCIENCE);
-                case 8 -> courses.add(ClassCourse.INFORMATION_TECHNOLOGY);
-                case 9 -> courses.add(ClassCourse.STATISTICS);
-                case 10 -> courses.add(ClassCourse.BUSINESS);
-                case 11 -> courses.add(ClassCourse.ENGLISH);
+            switch (course) {
+                case 1 -> {
+                    if (!courses.contains(ClassCourse.MATHS)) {
+                        courses.add(ClassCourse.MATHS);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
+                case 2 -> {
+                    if (!courses.contains(ClassCourse.CHEMISTRY)){
+                        courses.add(ClassCourse.CHEMISTRY);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
+                case 3 -> {
+                    if(!courses.contains(ClassCourse.PHYSICS)){
+                        courses.add(ClassCourse.PHYSICS);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
+                case 4 -> {
+                    if(!courses.contains(ClassCourse.GEOGRAPHY)){
+                        courses.add(ClassCourse.GEOGRAPHY);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
+                case 5 -> {
+                    if(!courses.contains(ClassCourse.HISTORY)){
+                        courses.add(ClassCourse.HISTORY);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
+                case 6 -> {
+                    if(!courses.contains(ClassCourse.BIOLOGY)){
+                        courses.add(ClassCourse.BIOLOGY);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
+                case 7 -> {
+                    if(!courses.contains(ClassCourse.COMPUTER_SCIENCE)){
+                        courses.add(ClassCourse.COMPUTER_SCIENCE);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
+                case 8 -> {
+                    if(!courses.contains(ClassCourse.INFORMATION_TECHNOLOGY)){
+                        courses.add(ClassCourse.INFORMATION_TECHNOLOGY);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
+                case 9 -> {
+                    if(!courses.contains(ClassCourse.STATISTICS)){
+                        courses.add(ClassCourse.STATISTICS);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
+                case 10 -> {
+                    if(!courses.contains(ClassCourse.BUSINESS)){
+                        courses.add(ClassCourse.BUSINESS);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
+                case 11 -> {
+                    if(!courses.contains(ClassCourse.ENGLISH)){
+                        courses.add(ClassCourse.ENGLISH);
+                    } else {
+                        repeatedMessage();
+                    }
+                }
                 case 0 -> {
-                    if (courses.size() == 0){
+                    if (courses.size() == 0) {
                         System.out.println("You have to enlist to AT LEAST one course.");
                     } else {
-                        break loop;
+                        return courses;
                     }
                 }
                 default -> System.out.println("Incorrect value");
             }
 
         }
-        student.setEnlistedCourses(courses);
-        students.add(student);
     }
-    @Override
-    public void fetchStudentInfo(Student student) {
+    private void repeatedMessage(){
+        System.out.println("That student is already enlisted on that subject...");
+    }    private void fetchStudentInfo(Student student) {
         basicInfoServices.fetchBasicInfo(student);
         System.out.println("Enlisted Courses: " + student.getEnlistedCourses());
         System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=");
     }
-    @Override
-    public void updateStudentInfo(Student oldStudent) {
-        Student updatedStudent = Student.copy(oldStudent);
-        fetchStudentInfo(updatedStudent);
-
-        System.out.println("1 => EDIT basic info");
-        System.out.println("2 => ADD courses");
-        System.out.println("3 => DELETE courses");
-        int updateOption = Integer.parseInt(read.nextLine());
-
-        loop:
-        while (true) {
-            switch (updateOption) {
-                case 1 -> {updatedStudent.setBasicInfo(basicInfoServices.update(updatedStudent));break loop;}
-            }
-        }
-        //TODO: confirmación de los cambios. Agregar y sacar cursos.
-        oldStudent.setBasicInfo(updatedStudent);
-        oldStudent.setEnlistedCourses(updatedStudent.getEnlistedCourses());
-    }
-
-    @Override
-    public Student deleteStudent(Student studentToDelete) {
-        return null;
+    private int studentSelection(ArrayList<Student> students){
+        System.out.println("Select the student...");
+        fetchStudentList(students);
+        int selection = Integer.parseInt(read.nextLine());
+        selection--;
+        return selection;
     }
 }

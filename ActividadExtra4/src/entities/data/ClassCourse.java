@@ -11,5 +11,7 @@ public enum ClassCourse{
         INFORMATION_TECHNOLOGY,
         STATISTICS,
         BUSINESS,
-        ENGLISH
-    }
+        ENGLISH;
+
+
+}
