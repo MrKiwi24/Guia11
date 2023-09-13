@@ -322,7 +322,8 @@ public class StudentService implements StudentInterface{
     }
     private void repeatedMessage(){
         System.out.println("That student is already enlisted on that subject...");
-    }    private void fetchStudentInfo(Student student) {
+    }
+    private void fetchStudentInfo(Student student) {
         basicInfoServices.fetchBasicInfo(student);
         System.out.println("Enlisted Courses: " + student.getEnlistedCourses());
         System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=");
