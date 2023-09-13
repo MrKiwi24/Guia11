@@ -10,8 +10,10 @@ import java.util.Scanner;
 
 public class StudentService implements StudentInterface{
     private final BasicInfoService basicInfoServices;
-    public StudentService(BasicInfoService basicInfoServices) {
+    private final ArrayList<Student> students;
+    public StudentService(BasicInfoService basicInfoServices, ArrayList<Student> students) {
         this.basicInfoServices = basicInfoServices;
+        this.students = students;
     }
     Scanner read = new Scanner(System.in);
     public void loadStudents(ArrayList<Student> students){
@@ -140,7 +142,7 @@ public class StudentService implements StudentInterface{
         //----------------------//
     }
     @Override
-    public void registerNewStudent(ArrayList<Student> students) {
+    public void registerNewStudent() {
         Scanner read = new Scanner(System.in);
         Student student = new Student();
 
@@ -153,8 +155,8 @@ public class StudentService implements StudentInterface{
         students.add(student);
     }
     @Override
-    public void updateStudentInfo(ArrayList<Student> students) {
-        Student oldStudent = students.get(studentSelection(students));
+    public void updateStudentInfo() {
+        Student oldStudent = students.get(studentSelection());
         Student updatedStudent = Student.copy(oldStudent);
         fetchStudentInfo(updatedStudent);
 
@@ -186,8 +188,8 @@ public class StudentService implements StudentInterface{
         }
     }
     @Override
-    public void deleteStudent(ArrayList<Student> students) {
-        int studentDeleteSelection = studentSelection(students);
+    public void deleteStudent() {
+        int studentDeleteSelection = studentSelection();
         while (true){
         System.out.println("ARE YOU SURE YOU WANT TO DELETE THIS STUDENT?");
         System.out.println("Y - YES //// N - NO");
@@ -206,7 +208,7 @@ public class StudentService implements StudentInterface{
         }
     }
     @Override
-    public void fetchStudentList(ArrayList<Student> students){
+    public void fetchStudentList(){
         System.out.println("*=*=*=*=*=*=*=*=*=*=*=*=*|-| STUDENTS |-|=*=*=*=*=*=*=*=*=*=*=*=*");
         for(int i = 0; i<students.size(); i++) {
             System.out.print(i+1+ "\t=> ");
@@ -327,9 +329,9 @@ public class StudentService implements StudentInterface{
         System.out.println("Enlisted Courses: " + student.getEnlistedCourses());
         System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=");
     }
-    private int studentSelection(ArrayList<Student> students){
+    private int studentSelection(){
         System.out.println("Select the student...");
-        fetchStudentList(students);
+        fetchStudentList();
         int selection = Integer.parseInt(read.nextLine());
         selection--;
         return selection;

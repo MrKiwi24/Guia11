@@ -12,20 +12,22 @@ import java.util.Scanner;
 
 public class CollegeService {
     Scanner read = new Scanner(System.in);
+    public static ArrayList<Student> students = new ArrayList<>();
+    public static ArrayList<Professor> professors = new ArrayList<>();
+    //Ya sé que Personnel es plural. Pero ya le metí mucho como para cambiarlo. Mala mía.
+    public static ArrayList<Personnel> personnels = new ArrayList<>();
     BasicInfoService basicInfoServices = new BasicInfoService();
-    StudentService studentService = new StudentService(basicInfoServices);
+    StudentService studentService = new StudentService(basicInfoServices, students);
     ProfessorService professorService = new ProfessorService();
     PersonnelService personnelService = new PersonnelService();
-    public void loadPeople(ArrayList<Student> students,
-                           ArrayList<Professor> professors,
-                           ArrayList<Personnel> personnels){
+    public void loadPeople(){
         System.out.println("Start load...");
         studentService.loadStudents(students);
         professorService.loadProfessors(professors);
         personnelService.loadPersonnels(personnels);
         System.out.println("Finished loading...");
     }
-    public void studentMenu(ArrayList<Student> students){
+    public void studentMenu(){
 
         while(true) {
             System.out.println("1 => Register new Student");
@@ -36,10 +38,10 @@ public class CollegeService {
 
             int option = Integer.parseInt(read.nextLine());
             switch (option) {
-                case 1 -> studentService.registerNewStudent(students);
-                case 2 -> studentService.fetchStudentList(students);
-                case 3 -> studentService.updateStudentInfo(students);
-                case 4 -> studentService.deleteStudent(students);
+                case 1 -> studentService.registerNewStudent();
+                case 2 -> studentService.fetchStudentList();
+                case 3 -> studentService.updateStudentInfo();
+                case 4 -> studentService.deleteStudent();
                 case 0 -> {
                     return;
                 }
