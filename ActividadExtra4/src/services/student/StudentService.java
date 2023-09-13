@@ -332,16 +332,16 @@ public class StudentService implements StudentInterface{
     private int studentSelection(){
         fetchStudentList();
         System.out.println("Select the student...");
+        while (true){
+            int selection = Integer.parseInt(read.nextLine());
 
-        int selection = Integer.parseInt(read.nextLine());
+            if (selection >= 1 && selection <= students.size()){
+                selection--;
+                return selection;
+            } else if (selection <= 0 || selection > students.size()){
+                System.out.println("Wrong option. Please, try again");
+            }
 
-        if (selection >= 1 && selection <= students.size()){
-            selection--;
-        } else if (selection <= 0 || selection > students.size()){
-            selection = 0;
-            System.out.println("Wrong option. Please, try again");
-            studentSelection();
         }
-        return selection;
     }
 }
