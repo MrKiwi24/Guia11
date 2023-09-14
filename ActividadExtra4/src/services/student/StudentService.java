@@ -189,6 +189,7 @@ public class StudentService implements StudentInterface{
     @Override
     public void deleteStudent() {
         int studentDeleteSelection = studentSelection();
+        fetchStudentInfo(students.get(studentDeleteSelection));
         while (true){
         System.out.println("ARE YOU SURE YOU WANT TO DELETE THIS STUDENT?");
         System.out.println("Y - YES //// N - NO");
@@ -203,7 +204,6 @@ public class StudentService implements StudentInterface{
             } else {
                 System.out.println("Incorrect option. Please, try again.");
             }
-
         }
     }
     @Override
